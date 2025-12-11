@@ -3,32 +3,58 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="/index.css" rel="stylesheet" />
+    <link href="/style.css" rel="stylesheet" />
     <title>Météo by Elo</title>
 </head>
+
 <body>
-    <h1>Météo by Elo</h1>
+    <div class="container">
+        <h1>Météo by Elo</h1>
 
-    <label for="ville">Chercher une ville:</label>
-    <input type="search" id="ville" name="ville" />
-    <br/>
-    <button id="button">Chercher</button>
+        <label for="ville">Chercher une ville :</label>
+        <input type="search" id="ville" name="ville" placeholder="Entrez une ville..." />
+        <button id="button">Chercher</button>
 
-    <div id="weather-section" class="hidden">
-        <p id="city-name"></p>
-        <p id="temperature"></p>
-        <p id="weather-icon"></p>
-        <p id="wind"></p>
-        <p id="humidity"></p>
-        <p id="feels-like"></p>
-        <div id="hourly-list"></div>
+        <!-- SECTION METEO -->
+        <div id="weather-section" class="hidden">
+
+            <div class="weather-card">
+                <h2 id="city-name" class="city-title"></h2>
+                <div id="weather-icon" class="icon"></div>
+                <p id="temperature" class="big-temp"></p>
+            </div>
+
+            <div class="details-card">
+                <h3>Détails</h3>
+
+                <div class="detail">
+                    <span class="label">Vent :</span>
+                    <span id="wind"></span>
+                </div>
+
+                <div class="detail">
+                    <span class="label">Humidité :</span>
+                    <span id="humidity"></span>
+                </div>
+
+                <div class="detail">
+                    <span class="label">Ressenti :</span>
+                    <span id="feels-like"></span>
+                </div>
+            </div>
+
+            <div class="hourly-card">
+                <h3>Prévision horaire</h3>
+                <div id="hourly-list"></div>
+            </div>
+        </div>
+
+        <button id="notify-btn">🔔 Activer les notifications</button>
+
+        <!-- Messages -->
+        <p id="loading" class="hidden">Chargement...</p>
+        <p id="error-message" class="hidden"></p>
     </div>
-
-    <button id="notify-btn">🔔 Activer les notifications</button>
-
-
-    <p id="loading" class="hidden">Chargement...</p>
-    <p id="error-message" class="hidden"></p>
 
     <script src="app.js"></script>
 </body>

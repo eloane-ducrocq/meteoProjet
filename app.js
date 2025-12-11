@@ -34,6 +34,8 @@ let currentCity = null;
 
 // ===== Initialisation =====
 document.addEventListener('DOMContentLoaded', () => {
+            elements.notifyBtn.addEventListener('click', isNotificationSupported );
+
     updateNotifyButton();
     registerServiceWorker();
         elements.searchBtn.addEventListener('click', handleSearch);
