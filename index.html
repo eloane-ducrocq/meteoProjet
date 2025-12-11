@@ -1,27 +1,35 @@
 <!DOCTYPE html>
-<html lang="en">
-
+<html lang="fr">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="/index.css" rel="stylesheet" />
-    <title>meteoByElo</title>
-    <script src="app.js"></script>
+    <title>Météo by Elo</title>
 </head>
-
 <body>
     <h1>Météo by Elo</h1>
-    <label for="site-search">Chercher une ville:</label>
+
+    <label for="ville">Chercher une ville:</label>
     <input type="search" id="ville" name="ville" />
-<br/>
+    <br/>
     <button id="button">Chercher</button>
 
-    <div>
-        <p id="weather-section"></p>
+    <div id="weather-section" class="hidden">
         <p id="city-name"></p>
         <p id="temperature"></p>
+        <p id="weather-icon"></p>
+        <p id="wind"></p>
+        <p id="humidity"></p>
+        <p id="feels-like"></p>
+        <div id="hourly-list"></div>
     </div>
 
-</body>
+    <button id="notify-btn">🔔 Activer les notifications</button>
 
+
+    <p id="loading" class="hidden">Chargement...</p>
+    <p id="error-message" class="hidden"></p>
+
+    <script src="app.js"></script>
+</body>
 </html>
