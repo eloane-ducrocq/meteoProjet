@@ -21,49 +21,49 @@ body {
     background: var(--bg);
     display: flex;
     justify-content: center;
-    padding: 20px;
+    padding: 30px;
     color: var(--text);
 }
 
 /* CONTAINER (APP CARD) */
 .container {
     width: 100%;
-    max-width: 430px;
+    max-width: max-content; /* plus compact */
     background: var(--card);
-    padding: 28px;
-    border-radius: 28px;
-    box-shadow: 0 12px 32px rgba(0,0,0,0.07);
+    padding: 24px;
+    border-radius: 24px;
+    box-shadow: 0 10px 28px rgba(0,0,0,0.07);
     animation: fadeIn 0.4s ease;
 }
 
 /* ANIMATION */
 @keyframes fadeIn {
-    from { opacity: 0; transform: translateY(12px); }
+    from { opacity: 0; transform: translateY(10px); }
     to   { opacity: 1; transform: translateY(0); }
 }
 
 /* TITLE */
 h1 {
     text-align: center;
-    font-size: 1.9rem;
+    font-size: 1.8rem;
     font-weight: 700;
-    margin-bottom: 24px;
+    margin-bottom: 20px;
     color: var(--accent);
 }
 
 /* FORM ELEMENTS */
 label {
-    font-size: 1rem;
+    font-size: 0.95rem;
     font-weight: 600;
 }
 
 input[type="search"] {
     width: 100%;
-    margin-top: 10px;
-    padding: 14px 16px;
-    border-radius: 16px;
+    margin-top: 8px;
+    padding: 12px 14px;
+    border-radius: 14px;
     border: 1px solid #d3d7df;
-    font-size: 1rem;
+    font-size: 0.95rem;
     background: #f9fafc;
     transition: 0.3s;
 }
@@ -76,76 +76,75 @@ input[type="search"]:focus {
 /* BUTTON */
 button {
     width: 100%;
-    margin-top: 14px;
-    padding: 14px;
-    border-radius: 16px;
+    margin-top: 12px;
+    padding: 12px;
+    border-radius: 14px;
     border: none;
     color: white;
     background: var(--accent);
-    font-size: 1.05rem;
+    font-size: 1rem;
     font-weight: 600;
     cursor: pointer;
-    box-shadow: 0 4px 12px rgba(78,140,255,0.25);
+    box-shadow: 0 3px 10px rgba(78,140,255,0.25);
     transition: 0.25s;
 }
 
 button:hover {
-    filter: brightness(1.08);
+    filter: brightness(1.06);
     transform: translateY(-1px);
 }
 
-/* WEATHER SECTION */
+/* WEATHER SECTION - compact desktop layout */
 #weather-section {
-    margin-top: 30px;
-    display: flex;
-    flex-direction: column;
-    gap: 22px;
+    margin-top: 25px;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
 }
 
 /* MAIN CITY CARD */
 .weather-card {
     background: var(--accent-light);
-    padding: 22px;
-    border-radius: 22px;
+    padding: 18px;
+    border-radius: 20px;
     text-align: center;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+    box-shadow: 0 3px 10px rgba(0,0,0,0.05);
 }
 
 .city-title {
-    font-size: 1.6rem;
+    font-size: 1.4rem;
     font-weight: 700;
-    margin-bottom: 10px;
+    margin-bottom: 8px;
 }
 
 .big-temp {
-    font-size: 2.6rem;
+    font-size: 2rem;
     font-weight: 700;
-    margin-top: 10px;
+    margin-top: 8px;
 }
 
 .icon img {
-    width: 70px;
-    height: 70px;
+    width: 60px;
+    height: 60px;
 }
 
 /* DETAILS CARD */
 .details-card {
-    padding: 20px;
+    padding: 18px;
     background: #ffffff;
-    border-radius: 20px;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+    border-radius: 18px;
+    box-shadow: 0 3px 10px rgba(0,0,0,0.05);
 }
 
 .details-card h3 {
-    font-size: 1.2rem;
-    margin-bottom: 16px;
+    font-size: 1.1rem;
+    margin-bottom: 12px;
 }
 
 .detail {
     display: flex;
     justify-content: space-between;
-    padding: 10px 0;
-    font-size: 1rem;
+    padding: 8px 0;
+    font-size: 0.9rem;
     border-bottom: 1px solid #eef0f4;
 }
 
@@ -155,36 +154,37 @@ button:hover {
 
 /* HOURLY CARD */
 .hourly-card {
+    margin-top: 20px;
     background: #ffffff;
-    padding: 20px;
-    border-radius: 20px;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+    padding: 18px;
+    border-radius: 18px;
+    box-shadow: 0 3px 10px rgba(0,0,0,0.05);
 }
 
 .hourly-card h3 {
-    font-size: 1.2rem;
-    margin-bottom: 16px;
+    font-size: 1.1rem;
+    margin-bottom: 12px;
 }
 
 #hourly-list {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(85px, 1fr));
-    gap: 12px;
+    grid-template-columns: repeat(auto-fill, minmax(75px, 1fr));
+    gap: 10px;
 }
 
 .hour-card {
     background: var(--accent-light);
-    padding: 12px;
-    border-radius: 16px;
+    padding: 10px;
+    border-radius: 14px;
     text-align: center;
-    font-size: 0.9rem;
-    box-shadow: 0 4px 8px rgba(0,0,0,0.04);
+    font-size: 0.8rem;
+    box-shadow: 0 3px 6px rgba(0,0,0,0.04);
 }
 
 /* NOTIFICATION BUTTON */
 #notify-btn {
     background: #ffa94d;
-    box-shadow: 0 4px 12px rgba(255,169,77,0.25);
+    box-shadow: 0 3px 10px rgba(255,169,77,0.25);
 }
 
 #notify-btn:hover {
@@ -194,7 +194,7 @@ button:hover {
 /* LOADING + ERROR */
 #loading, #error-message {
     text-align: center;
-    margin-top: 15px;
+    margin-top: 12px;
     color: var(--subtle);
 }
 
