@@ -10,8 +10,8 @@ const CONFIG = {
 
 // ===== Éléments DOM =====
 const elements = {
-    cityInput: document.getElementById('city-input'),
-    searchBtn: document.getElementById('search-btn'),
+    cityInput: document.getElementById('ville'),
+    searchBtn: document.getElementById('button'),
     notifyBtn: document.getElementById('notify-btn'),
     themeToggle: document.getElementById('theme-toggle'),
     weatherSection: document.getElementById('weather-section'),
