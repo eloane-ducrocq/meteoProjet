@@ -34,12 +34,15 @@ let currentCity = null;
 
 // ===== Initialisation =====
 document.addEventListener('DOMContentLoaded', () => {
-            elements.notifyBtn.addEventListener('click', isNotificationSupported );
-
     updateNotifyButton();
     registerServiceWorker();
-        elements.searchBtn.addEventListener('click', handleSearch);
+    elements.searchBtn.addEventListener('click', handleSearch);
 
+    elements.notifyBtn.addEventListener('click', () => {
+        if (Notification.permission === 'default') {
+            requestNotificationPermission();
+        }
+    });
 });
 
 // ===== Service Worker =====
@@ -85,6 +88,7 @@ function updateNotifyButton() {
     } else {
         elements.notifyBtn.textContent = '🔔 Activer les notifications';
         elements.notifyBtn.classList.remove('granted', 'denied');
+         elements.notifyBtn.onclick = requestNotificationPermission; 
     }
 }
 
@@ -117,8 +121,21 @@ async function requestNotificationPermission() {
 }
 
 function sendWeatherNotification(city, message, type = 'info') {
-  
-}
+    if (!isNotificationSupported() || Notification.permission !== 'granted') return;
+
+    const icons = {
+        info: 'icons/icon-192.png',
+        rain: 'icons/rain.png',    // tu peux mettre tes icônes personnalisées
+        temp: 'icons/temp.png'
+    };
+
+    new Notification(`Météo à ${city}`, {
+        body: message,
+        icon: icons[type] || icons.info,
+        tag: type // permet d'éviter plusieurs notifications du même type
+    });
+}  
+
 // ===== Recherche et API Météo =====
 async function handleSearch() {
     const query = elements.cityInput.value.trim();
