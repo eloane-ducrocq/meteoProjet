@@ -37,11 +37,11 @@ document.addEventListener('DOMContentLoaded', () => {
     updateNotifyButton();
     registerServiceWorker();
     elements.searchBtn.addEventListener('click', handleSearch);
+    elements.notifyBtn.addEventListener('click', requestNotificationPermission);
 
-    elements.notifyBtn.addEventListener('click', () => {
-        if (Notification.permission === 'default') {
-            requestNotificationPermission();
-        }
+    
+    elements.cityInput.addEventListener('keypress', (e) => {
+        if (e.key === 'Enter') handleSearch();
     });
 });
 
@@ -56,6 +56,7 @@ async function registerServiceWorker() {
         }
     }
 }
+
 
 // ===== Notifications =====
 function isNotificationSupported() {
@@ -88,11 +89,12 @@ function updateNotifyButton() {
     } else {
         elements.notifyBtn.textContent = '🔔 Activer les notifications';
         elements.notifyBtn.classList.remove('granted', 'denied');
-         elements.notifyBtn.onclick = requestNotificationPermission; 
+        //  elements.notifyBtn.onclick = requestNotificationPermission; 
     }
 }
 
 async function requestNotificationPermission() {
+
     if (!('Notification' in window)) {
         showError('Les notifications ne sont pas supportées par votre navigateur.');
         return;
@@ -132,7 +134,6 @@ function sendWeatherNotification(city, message, type = 'info') {
     new Notification(`Météo à ${city}`, {
         body: message,
         icon: icons[type] || icons.info,
-        tag: type // permet d'éviter plusieurs notifications du même type
     });
 }  
 
