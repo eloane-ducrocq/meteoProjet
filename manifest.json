@@ -2,7 +2,7 @@
   "name": "Weather App",
   "short_name": "Weather",
   "description": "Une application météo simple et élégante pour consulter la météo en un coup d'œil.",
-  "version": "1.3",
+  "version": "1.4",
   "start_url": "/",
   "display": "standalone",
   "background_color": "#eef1f5",
